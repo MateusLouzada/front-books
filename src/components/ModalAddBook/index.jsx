@@ -67,22 +67,25 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
     }
   };
 
-  const handleChangeBook = (e) => {
+  const handleChangeBook = async (e) => {
     e.preventDefault();
     const bookDetails = {
       name: bookSelected?.volumeInfo.title,
       read: e.target[0].checked,
       haveBook: e.target[1].checked,
       pages: bookSelected?.volumeInfo.pageCount,
-      readingTime: e.target[2].value,
+      readingTime: e.target[2].value ? e.target[2].value : 0,
       idUser: user.id,
     };
 
     if(!bookDetails.name && !bookDetails.pages){
       console.log("Não foi possível cadastrar o livro!")
+      return
     }
 
-    addBook(bookDetails)
+    await addBook(bookDetails)
+
+    closeModal()
   };
 
   return (
