@@ -13,6 +13,7 @@ import { getBook } from "../../services/apiGoogleBooks";
 import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { AuthContext } from "../../contexts/auth";
+import { addBook } from "../../services/api";
 
 function ModalAddBook({ modalIsOpen, closeModal }) {
   const { user } = useContext(AuthContext);
@@ -48,7 +49,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
     if (temp) {
       //console.log(temp);
       return (
-        <DetailsBook>
+        <div className="container-details">
           <div className="div-inside-details">
             {temp.volumeInfo.imageLinks?.thumbnail ? (
               <img src={temp.volumeInfo.imageLinks.thumbnail} alt="" />
@@ -61,7 +62,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
             <div>Páginas: {temp.volumeInfo.pageCount}</div>
             <div>Data da publicação: {temp.volumeInfo.publishedDate}</div>
           </div>
-        </DetailsBook>
+        </div>
       );
     }
   };
@@ -76,8 +77,12 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
       readingTime: e.target[2].value,
       idUser: user.id,
     };
-    
-    console.log(bookDetails)
+
+    if(!bookDetails.name && !bookDetails.pages){
+      console.log("Não foi possível cadastrar o livro!")
+    }
+
+    addBook(bookDetails)
   };
 
   return (
@@ -109,7 +114,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
               )}
             />
           </DivSearchBox>
-          {showBook()}
+          <DetailsBook>{showBook()}</DetailsBook>
         </DivContent>
         <form onSubmit={handleChangeBook}>
           <DivInteractions>

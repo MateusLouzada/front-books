@@ -26,14 +26,14 @@ export const getBooks = async (idUser) => {
   return await api.get(`/books/books_user/${idUser}`);
 };
 
-export const addBook = async (
+export const addBook = async ({
   name,
   read,
   haveBook,
   pages,
   readingTime,
-  idUser
-) => {
+  idUser,
+}) => {
   return api.post(
     "/books/add_book",
     {

@@ -1,11 +1,16 @@
+import { Autocomplete } from "@material-ui/lab";
 import styled from "styled-components";
 
 export const modalStyle = {
   content: {
     width: "80%",
-    heigth: "50%",
-    margin: "auto",
+    height: "80%",
     backgroundColor: "red",
+    display: "flex",
+    margin: "auto",
+    justifyContent: "space-around",
+    flexDirection: "column",
+    overflow: "hidden",
   },
 };
 
@@ -19,7 +24,6 @@ export const ButtonClose = styled.div`
   width: 40px;
   height: 20px;
   align-self: flex-start;
-  place-self: center start;
 
   button {
     border: none;
@@ -34,28 +38,51 @@ export const DivContent = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  height: 90%;
+  height: 60%;
   width: 100%;
   flex-direction: column;
 `;
 
 export const DetailsBook = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  height: 40%;
+  width: 90%;
+
+  .container-details {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+  }
 
   .div-inside-details {
     margin: 0 3rem;
-    width: 60%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-    height: 100%;
+    width: 30%;
   }
 `;
 
-export const DivButton = styled.div``;
+export const DivButton = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 15px;
+`;
 
-export const DivInteractions = styled.div``;
+export const DivInteractions = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    margin-bottom: 15px;
+  }
+`;
