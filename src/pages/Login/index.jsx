@@ -1,12 +1,15 @@
 import { Container, ContainerLogin } from "./style";
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
+import { Navigate } from "react-router-dom";
 
 function Login() {
   const { login } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [register, setRegister] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +21,10 @@ function Login() {
   };
   const changePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleRegister = () => {
+    setRegister(true);
   };
 
   return (
@@ -43,9 +50,10 @@ function Login() {
         </div>
         <div>
           <button type="submit">Entrar</button>
-          <button>Cadastrar</button>
         </div>
       </ContainerLogin>
+      <button onClick={handleRegister}>Cadastrar</button>
+      {register ? <Navigate to="/register" /> : <></>}
     </Container>
   );
 }
