@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { createUser } from "../../services/api";
 import { Container } from "./style";
 
@@ -7,6 +8,7 @@ function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  const [successRegister, setSuccessRegister] = useState(false);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -24,13 +26,19 @@ function Register() {
   const registerUser = (e) => {
     e.preventDefault();
 
-    if (!name && !email && !password && !confirmPassword) {
+    if (name && email && password && confirmPassword) {
       createUser(name, email, password, confirmPassword);
+      setSuccessRegister(true);
     }
+  };
+
+  const changeLogin = () => {
+    setSuccessRegister(true);
   };
 
   return (
     <Container>
+      <button onClick={changeLogin}>Voltar</button>
       <form onSubmit={registerUser}>
         <div>
           <span>Nome</span>
@@ -52,6 +60,7 @@ function Register() {
           <button type="submit">Enviar</button>
         </div>
       </form>
+      {successRegister ? <Navigate to="/login" /> : <></>}
     </Container>
   );
 }

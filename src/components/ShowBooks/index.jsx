@@ -24,6 +24,12 @@ function ShowBooks({ books }) {
         <p>Tempo em que o livro foi lido </p>
         <p>{book.readingTime}</p>
       </div>
+      <div>
+        <button>Apagar</button>
+      </div>
+      <div>
+        <button>Mudar</button>
+      </div>
     </CardBook>
   ));
 

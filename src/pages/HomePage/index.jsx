@@ -9,7 +9,7 @@ import { AuthContext } from "../../contexts/auth";
 function HomePage() {
   const { logout, user } = useContext(AuthContext);
   const [books, setBooks] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => setModalIsOpen(true);
 
@@ -22,7 +22,7 @@ function HomePage() {
       setBooks(booksUser.books);
     }
     getBooksApi();
-  }, []);
+  }, [modalIsOpen]);
 
   const handleLogout = () => {
     logout();
