@@ -13,6 +13,16 @@ const GlobalStyle = createGlobalStyle`
     *:after{
       box-sizing: inherit  
     }
+    button {
+    background-color: #B232E3;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: 0 10px;
+    height: 30px;
+    width: 80px;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;

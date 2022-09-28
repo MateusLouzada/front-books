@@ -5,15 +5,19 @@ import ShowBooks from "../../components/ShowBooks";
 import ModalAddBook from "../../components/ModalAddBook";
 
 import { AuthContext } from "../../contexts/auth";
+import ModalChangeBook from "../../components/ModalChangeBook";
 
 function HomePage() {
   const { logout, user } = useContext(AuthContext);
   const [books, setBooks] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpenAdd, setModalIsOpenAdd] = useState(false);
+  const [modalIsOpenChange, setModalIsOpenChange] = useState(false);
 
-  const openModal = () => setModalIsOpen(true);
+  const openModalAdd = () => setModalIsOpenAdd(true);
+  const openModalChange = () => setModalIsOpenChange(true);
 
-  const closeModal = () => setModalIsOpen(false);
+  const closeModalAdd = () => setModalIsOpenAdd(false);
+  const closeModalChange = () => setModalIsOpenChange(false);
 
   useEffect(() => {
     async function getBooksApi() {
@@ -22,7 +26,7 @@ function HomePage() {
       setBooks(booksUser.books);
     }
     getBooksApi();
-  }, [modalIsOpen]);
+  }, [modalIsOpenAdd, modalIsOpenChange]);
 
   const handleLogout = () => {
     logout();
@@ -38,12 +42,13 @@ function HomePage() {
         <button onClick={handleLogout}>Logout</button>
       </DivButton>
       <div>
-        <button onClick={openModal}>Adicionar um livro</button>
+        <button onClick={openModalAdd}>Adicionar um livro</button>
       </div>
-      <ShowBooks books={books} />
-      <ModalAddBook
-        modalIsOpen={modalIsOpen}
-        closeModal={closeModal}
+      <ShowBooks books={books} openModalChange={openModalChange} />
+      <ModalAddBook modalIsOpen={modalIsOpenAdd} closeModal={closeModalAdd} />
+      <ModalChangeBook
+        modalIsOpen={modalIsOpenChange}
+        closeModal={closeModalChange}
       />
     </Container>
   );

@@ -38,13 +38,4 @@ export const ContainerLogin = styled.form`
     border: none;
     height: 15px
   }
-  button {
-    background-color: #B232E3;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    margin: 0 10px;
-    height: 25px;
-    width: 80px;
-  }
 `;

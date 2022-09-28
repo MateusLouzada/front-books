@@ -1,7 +1,13 @@
 import React from "react";
+import { deleteBook } from "../../services/api";
 import { Container, CardBook } from "./style";
 
-function ShowBooks({ books }) {
+function ShowBooks({ books, openModalChange}) {
+  const deleteBookButton = async (book, _) => {
+    //Arrumar erro que está ocorrendo
+    await deleteBook(book.name, book.idUser);
+  };
+
   const bookComp = books.map((book, key) => (
     <CardBook key={key}>
       <div>
@@ -25,10 +31,10 @@ function ShowBooks({ books }) {
         <p>{book.readingTime}</p>
       </div>
       <div>
-        <button>Apagar</button>
+        <button onClick={deleteBookButton.bind(this, book)}>Apagar</button>
       </div>
       <div>
-        <button>Mudar</button>
+        <button onClick={openModalChange}>Mudar</button>
       </div>
     </CardBook>
   ));

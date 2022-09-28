@@ -50,10 +50,10 @@ export const addBook = async ({
   );
 };
 
-export const deleteBook = async (idUser, name) => {
+export const deleteBook = async (name, idUser) => {
   return api.delete(
     "/books/delete_book",
-    { idUser, name },
+    { name, idUser },
     { "Content-Type": "application/json" }
   );
 };
