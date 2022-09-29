@@ -13,8 +13,42 @@ export const modalStyle = {
   },
 };
 
-export const ButtonClose = styled.div``;
+export const ButtonClose = styled.div`
+  width: 40px;
+  height: 20px;
+  align-self: flex-start;
 
-export const DivInteractions = styled.div``;
+  button {
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+`;
 
-export const DivButton = styled.div``;
+export const DivName = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+
+export const DivInteractions = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    margin-bottom: 15px;
+  }
+`;
+
+export const DivButton = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 60%;
+  width: 100%;
+  flex-direction: column;
+`;

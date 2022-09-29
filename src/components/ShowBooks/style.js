@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 export const CardBook = styled.div`
     width: 60%;
-    height: 20%;
+    padding: 2rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 0;
+    margin: 1rem;
     background-color: #18C4FA;
     border: none;
 
@@ -20,4 +20,4 @@ export const CardBook = styled.div`
         text-align: center;
         margin: 1rem 1.2rem;
     }
-`
+`;

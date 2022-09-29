@@ -58,10 +58,10 @@ export const deleteBook = async (name, idUser) => {
   );
 };
 
-export const changeBook = async (idUser, name, newRead) => {
+export const changeBook = async (idUser, name, newRead, newHaveBook) => {
   return api.put(
     "/books/change_book",
-    { idUser, name, newRead },
+    { idUser, name, newRead, newHaveBook },
     { "Content-Type": "application/json" }
   );
 };

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,7 +8,12 @@ export const Container = styled.div`
 
 export const DivButton = styled.div`
   display: flex;
-  width: 100%;
+  width: 90%;
   height: 30px;
   justify-content: flex-end;
+`;
+
+export const DivAddBook = styled.div`
+  width: 100%;
+  text-align: center;
 `;

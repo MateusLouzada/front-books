@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import { AuthProvider, AuthContext } from "./contexts/auth";
+import { BookProvider } from "./contexts/bookContext";
 
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
@@ -37,9 +38,11 @@ function AppRoutes() {
             exact
             path="/"
             element={
-              <Private>
-                <HomePage />
-              </Private>
+              <BookProvider>
+                <Private>
+                  <HomePage />
+                </Private>
+              </BookProvider>
             }
           />
         </Routes>

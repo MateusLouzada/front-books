@@ -2,8 +2,9 @@ import React from "react";
 import { deleteBook } from "../../services/api";
 import { Container, CardBook } from "./style";
 
-function ShowBooks({ books, openModalChange}) {
+function ShowBooks({ books, openModalChange }) {
   const deleteBookButton = async (book, _) => {
+    console.log(book.name, book.idUser);
     //Arrumar erro que está ocorrendo
     await deleteBook(book.name, book.idUser);
   };
@@ -34,7 +35,7 @@ function ShowBooks({ books, openModalChange}) {
         <button onClick={deleteBookButton.bind(this, book)}>Apagar</button>
       </div>
       <div>
-        <button onClick={openModalChange}>Mudar</button>
+        <button onClick={openModalChange.bind(this, book)}>Mudar</button>
       </div>
     </CardBook>
   ));

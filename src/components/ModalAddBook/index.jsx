@@ -47,6 +47,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
       return book.volumeInfo.title === bookName;
     });
     if (temp) {
+      console.log(temp)
       //console.log(temp);
       return (
         <div className="container-details">
@@ -67,7 +68,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
     }
   };
 
-  const handleChangeBook = async (e) => {
+  const handleAddBook = async (e) => {
     e.preventDefault();
     const bookDetails = {
       name: bookSelected?.volumeInfo.title,
@@ -78,14 +79,14 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
       idUser: user.id,
     };
 
-    if(!bookDetails.name && !bookDetails.pages){
-      console.log("Não foi possível cadastrar o livro!")
-      return
+    if (!bookDetails.name && !bookDetails.pages) {
+      console.log("Não foi possível cadastrar o livro!");
+      return;
     }
 
-    await addBook(bookDetails)
+    await addBook(bookDetails);
 
-    closeModal()
+    closeModal();
   };
 
   return (
@@ -119,7 +120,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
           </DivSearchBox>
           <DetailsBook>{showBook()}</DetailsBook>
         </DivContent>
-        <form onSubmit={handleChangeBook}>
+        <form onSubmit={handleAddBook}>
           <DivInteractions>
             <div>
               <span>Já foi lido?</span>

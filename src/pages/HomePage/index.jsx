@@ -1,20 +1,26 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Container, DivButton } from "./style";
+import { Container, DivButton, DivAddBook } from "./style";
 import { getBooks } from "../../services/api";
 import ShowBooks from "../../components/ShowBooks";
 import ModalAddBook from "../../components/ModalAddBook";
 
 import { AuthContext } from "../../contexts/auth";
 import ModalChangeBook from "../../components/ModalChangeBook";
+import { BookContext } from "../../contexts/bookContext";
 
 function HomePage() {
+  const { setBook } = useContext(BookContext);
   const { logout, user } = useContext(AuthContext);
+
   const [books, setBooks] = useState([]);
   const [modalIsOpenAdd, setModalIsOpenAdd] = useState(false);
   const [modalIsOpenChange, setModalIsOpenChange] = useState(false);
 
   const openModalAdd = () => setModalIsOpenAdd(true);
-  const openModalChange = () => setModalIsOpenChange(true);
+  const openModalChange = (book, _) => {
+    setBook(book);
+    setModalIsOpenChange(true);
+  };
 
   const closeModalAdd = () => setModalIsOpenAdd(false);
   const closeModalChange = () => setModalIsOpenChange(false);
@@ -41,9 +47,9 @@ function HomePage() {
       <DivButton>
         <button onClick={handleLogout}>Logout</button>
       </DivButton>
-      <div>
+      <DivAddBook>
         <button onClick={openModalAdd}>Adicionar um livro</button>
-      </div>
+      </DivAddBook>
       <ShowBooks books={books} openModalChange={openModalChange} />
       <ModalAddBook modalIsOpen={modalIsOpenAdd} closeModal={closeModalAdd} />
       <ModalChangeBook
