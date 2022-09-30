@@ -18,7 +18,7 @@ export const ContainerLogin = styled.form`
   max-width: 350px;
   height: 40%;
   max-height: 600px;
-  
+
   div {
     width: 350px;
     display: flex;
@@ -27,15 +27,16 @@ export const ContainerLogin = styled.form`
     align-items: center;
   }
 
-  span {
-    display: flex;
-    width: 50px; 
+  label {
+    display: inline-block;
+    width: 50px;
+    margin-right: 0.5rem;
   }
 
   input {
-    border-radius:5px;
+    border-radius: 5px;
     padding: 5px;
     border: none;
-    height: 15px
+    height: 15px;
   }
 `;

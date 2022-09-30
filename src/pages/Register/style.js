@@ -25,6 +25,10 @@ export const Container = styled.div`
 
   input {
     width: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    height: 15px;
   }
 
   span {

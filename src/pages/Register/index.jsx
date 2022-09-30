@@ -38,7 +38,6 @@ function Register() {
 
   return (
     <Container>
-      <button onClick={changeLogin}>Voltar</button>
       <form onSubmit={registerUser}>
         <div>
           <span>Nome</span>
@@ -58,6 +57,9 @@ function Register() {
         </div>
         <div>
           <button type="submit">Enviar</button>
+          <button type="button" onClick={changeLogin}>
+            Voltar
+          </button>
         </div>
       </form>
       {successRegister ? <Navigate to="/login" /> : <></>}

@@ -50,9 +50,11 @@ function Login() {
         </div>
         <div>
           <button type="submit">Entrar</button>
+          <button type="button" onClick={handleRegister}>
+            Cadastrar
+          </button>
         </div>
       </ContainerLogin>
-      <button onClick={handleRegister}>Cadastrar</button>
       {register ? <Navigate to="/register" /> : <></>}
     </Container>
   );
