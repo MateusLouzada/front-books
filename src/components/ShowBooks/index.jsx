@@ -4,13 +4,14 @@ import { Container, CardBook } from "./style";
 
 function ShowBooks({ books, openModalChange }) {
   const deleteBookButton = async (book, _) => {
-    console.log(book.name, book.idUser);
-    //Arrumar erro que está ocorrendo
     await deleteBook(book.name, book.idUser);
   };
 
   const bookComp = books.map((book, key) => (
     <CardBook key={key}>
+      <div>
+        <img src={book.image} />
+      </div>
       <div>
         <p>Livro </p>
         <p>{book.name}</p>
@@ -20,7 +21,7 @@ function ShowBooks({ books, openModalChange }) {
         <p>{book.read ? "Sim" : "Não"}</p>
       </div>
       <div>
-        <p>Livro já obitido </p>
+        <p>Livro já obtido </p>
         <p>{book.haveBook ? "Sim" : "Não"}</p>
       </div>
       <div>

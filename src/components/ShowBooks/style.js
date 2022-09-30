@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const CardBook = styled.div`
-    width: 60%;
+    width: 60vw;
     padding: 2rem;
     display: flex;
     justify-content: space-around;

@@ -30,23 +30,23 @@ function AppRoutes() {
 
   return (
     <Router>
-      <AuthProvider>
-        <Routes>
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
-          <Route
-            exact
-            path="/"
-            element={
-              <BookProvider>
+      <BookProvider>
+        <AuthProvider>
+          <Routes>
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
+            <Route
+              exact
+              path="/"
+              element={
                 <Private>
                   <HomePage />
                 </Private>
-              </BookProvider>
-            }
-          />
-        </Routes>
-      </AuthProvider>
+              }
+            />
+          </Routes>
+        </AuthProvider>
+      </BookProvider>
     </Router>
   );
 }

@@ -32,7 +32,7 @@ function HomePage() {
       setBooks(booksUser.books);
     }
     getBooksApi();
-  }, [modalIsOpenAdd, modalIsOpenChange]);
+  }, [modalIsOpenAdd, modalIsOpenChange, books]);
 
   const handleLogout = () => {
     logout();

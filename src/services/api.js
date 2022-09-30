@@ -5,7 +5,7 @@ export const api = axios.create({
 });
 
 export const createSession = async (email, password) => {
-  return api.post(
+  return await api.post(
     "/auth/login",
     { email, password },
     {
@@ -15,7 +15,7 @@ export const createSession = async (email, password) => {
 };
 
 export const createUser = async (name, email, password, confirmPassword) => {
-  return api.post(
+  return await api.post(
     "/auth/register",
     { name, email, password, confirmPassword },
     { "Content-Type": "application/json" }
@@ -28,16 +28,18 @@ export const getBooks = async (idUser) => {
 
 export const addBook = async ({
   name,
+  image,
   read,
   haveBook,
   pages,
   readingTime,
   idUser,
 }) => {
-  return api.post(
+  return await api.post(
     "/books/add_book",
     {
       name,
+      image,
       read,
       haveBook,
       pages,
@@ -51,15 +53,21 @@ export const addBook = async ({
 };
 
 export const deleteBook = async (name, idUser) => {
-  return api.delete(
+  //console.log(name, idUser);
+  return await api.delete(
     "/books/delete_book",
-    { name, idUser },
+    {
+      data: {
+        idUser: idUser,
+        name: name,
+      },
+    },
     { "Content-Type": "application/json" }
   );
 };
 
 export const changeBook = async (idUser, name, newRead, newHaveBook) => {
-  return api.put(
+  return await api.put(
     "/books/change_book",
     { idUser, name, newRead, newHaveBook },
     { "Content-Type": "application/json" }

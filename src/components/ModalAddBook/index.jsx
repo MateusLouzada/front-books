@@ -47,8 +47,6 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
       return book.volumeInfo.title === bookName;
     });
     if (temp) {
-      console.log(temp)
-      //console.log(temp);
       return (
         <div className="container-details">
           <div className="div-inside-details">
@@ -70,8 +68,10 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
 
   const handleAddBook = async (e) => {
     e.preventDefault();
+    //console.log(bookSelected?.volumeInfo.imageLinks);
     const bookDetails = {
       name: bookSelected?.volumeInfo.title,
+      image: bookSelected?.volumeInfo.imageLinks.thumbnail,
       read: e.target[0].checked,
       haveBook: e.target[1].checked,
       pages: bookSelected?.volumeInfo.pageCount,
