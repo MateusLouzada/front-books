@@ -1,7 +1,11 @@
 import express from "express";
-import { resolve } from "path";
+import path, { resolve } from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use("/", express.static(resolve(__dirname, "./dist")));
 
