@@ -15,8 +15,9 @@ export const DivButton = styled.div`
 `;
 
 export const DivAddBook = styled.div`
+  display: flex;
   width: 100%;
-  text-align: center;
+  justify-content: center;
 
   button {
     padding: 10px;

@@ -1,3 +1,4 @@
+import { darken } from "polished";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -22,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
     height: 30px;
     width: 80px;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  button:hover{
+    background-color: ${darken(0.2, "#B232E3")};
   }
 `;
 

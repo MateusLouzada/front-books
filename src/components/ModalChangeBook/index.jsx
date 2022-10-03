@@ -21,7 +21,8 @@ function ModalChangeBook({ modalIsOpen, closeModal }) {
       book.idUser,
       book.name,
       e.target[0].checked,
-      e.target[1].checked
+      e.target[1].checked,
+      e.target[2].value
     );
 
     closeModal();
@@ -33,12 +34,16 @@ function ModalChangeBook({ modalIsOpen, closeModal }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={modalStyle}
+        ariaHideApp={false}
       >
         <ButtonClose>
-          <button onClick={closeModal}>close</button>
+          <button onClick={closeModal}>Fechar</button>
         </ButtonClose>
         <DivName>
           <h3>{book?.name}</h3>
+          <div>
+            <img src={book?.image} />
+          </div>
         </DivName>
         <form onSubmit={handleChangeBook}>
           <DivInteractions>

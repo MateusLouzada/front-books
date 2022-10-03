@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { transparentize } from "polished";
 
 export const modalStyle = {
   content: {
     width: "80%",
     height: "80%",
-    backgroundColor: "red",
+    backgroundColor: transparentize(0.2, "#9544FA"),
     display: "flex",
     margin: "auto",
     justifyContent: "space-around",

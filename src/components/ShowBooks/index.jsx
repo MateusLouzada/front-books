@@ -1,47 +1,59 @@
 import React from "react";
 import { deleteBook } from "../../services/api";
-import { Container, CardBook } from "./style";
+import { Container, CardBook, DivDetails, DivImage, DivNotBook } from "./style";
 
-function ShowBooks({ books, openModalChange }) {
+function ShowBooks({ books, openModalChange, setReloadBook, reloadBook }) {
   const deleteBookButton = async (book, _) => {
     await deleteBook(book.name, book.idUser);
+
+    //Fazer reload da chamada de api de livros para ficar dinamico
+    if (reloadBook) {
+      setReloadBook(false);
+    } else {
+      setReloadBook(true);
+    }
   };
 
-  const bookComp = books.map((book, key) => (
+  const bookComp = books.map((bookInside, key) => (
     <CardBook key={key}>
+      <DivImage onClick={openModalChange.bind(this, bookInside)}>
+        <img src={bookInside.image} />
+      </DivImage>
+      <DivDetails onClick={openModalChange.bind(this, bookInside)}>
+        <div>
+          <h3>Livro </h3>
+          <p>{bookInside.name}</p>
+        </div>
+        <div>
+          <h3>Lido</h3>
+          <p>{bookInside.read ? "Sim" : "Não"}</p>
+        </div>
+        <div>
+          <h3>Livro obtido </h3>
+          <p>{bookInside.haveBook ? "Sim" : "Não"}</p>
+        </div>
+        <div>
+          <h3>Páginas </h3>
+          <p>{bookInside.pages}</p>
+        </div>
+        <div>
+          <h3>Concluido em</h3>
+          <p>{bookInside.readingTime} Dias</p>
+        </div>
+      </DivDetails>
       <div>
-        <img src={book.image} />
-      </div>
-      <div>
-        <p>Livro </p>
-        <p>{book.name}</p>
-      </div>
-      <div>
-        <p>Lido</p>
-        <p>{book.read ? "Sim" : "Não"}</p>
-      </div>
-      <div>
-        <p>Livro já obtido </p>
-        <p>{book.haveBook ? "Sim" : "Não"}</p>
-      </div>
-      <div>
-        <p>Páginas </p>
-        <p>{book.pages}</p>
-      </div>
-      <div>
-        <p>Tempo em que o livro foi lido </p>
-        <p>{book.readingTime}</p>
-      </div>
-      <div>
-        <button onClick={deleteBookButton.bind(this, book)}>Apagar</button>
-      </div>
-      <div>
-        <button onClick={openModalChange.bind(this, book)}>Mudar</button>
+        <button onClick={deleteBookButton.bind(this, bookInside)}>
+          Apagar
+        </button>
       </div>
     </CardBook>
   ));
 
-  const bookEmpty = <h2>Não possui livro cadastrado</h2>;
+  const bookEmpty = (
+    <DivNotBook>
+      <h2>Não possui livro cadastrado</h2>
+    </DivNotBook>
+  );
 
   if (books.length < 1) {
     return <Container>{bookEmpty}</Container>;

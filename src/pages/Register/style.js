@@ -19,7 +19,7 @@ export const Container = styled.div`
   div {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 20px;
   }
 

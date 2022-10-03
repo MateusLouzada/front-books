@@ -13,8 +13,10 @@ function HomePage() {
   const { logout, user } = useContext(AuthContext);
 
   const [books, setBooks] = useState([]);
+  const [reloadBook, setReloadBook] = useState(false);
   const [modalIsOpenAdd, setModalIsOpenAdd] = useState(false);
   const [modalIsOpenChange, setModalIsOpenChange] = useState(false);
+  const [defaultBooks, setDefaultBooks] = useState(false);
 
   const openModalAdd = () => setModalIsOpenAdd(true);
   const openModalChange = (book, _) => {
@@ -32,10 +34,46 @@ function HomePage() {
       setBooks(booksUser.books);
     }
     getBooksApi();
-  }, [modalIsOpenAdd, modalIsOpenChange, books]);
+  }, [modalIsOpenAdd, modalIsOpenChange, reloadBook, defaultBooks]);
 
   const handleLogout = () => {
     logout();
+  };
+
+  const handleSortBooks = () => {
+    setBooks(
+      [...books].sort((a, b) => {
+        if (a.name > b.name) return 1;
+
+        if (a.name < b.name) return -1;
+
+        return 0;
+      })
+    );
+  };
+
+  const handleHaveBook = () => {
+    setBooks(
+      books.filter((book) => {
+        if (book.haveBook) return book;
+      })
+    );
+  };
+
+  const handleReadBook = () => {
+    setBooks(
+      books.filter((book) => {
+        if (book.read) return book;
+      })
+    );
+  };
+
+  const handleDefaultBooks = () => {
+    console.log(defaultBooks);
+    if (defaultBooks) {
+      return setDefaultBooks(false);
+    }
+    return setDefaultBooks(true);
   };
 
   if (!books) {
@@ -49,8 +87,17 @@ function HomePage() {
       </DivButton>
       <DivAddBook>
         <button onClick={openModalAdd}>Adicionar um livro</button>
+        <button onClick={handleSortBooks}>Ordem alfabética</button>
+        <button onClick={handleHaveBook}>Obtido</button>
+        <button onClick={handleReadBook}>Lido</button>
+        <button onClick={handleDefaultBooks}>Ordem padrão</button>
       </DivAddBook>
-      <ShowBooks books={books} openModalChange={openModalChange} />
+      <ShowBooks
+        books={books}
+        openModalChange={openModalChange}
+        setReloadBook={setReloadBook}
+        reloadBook={reloadBook}
+      />
       <ModalAddBook modalIsOpen={modalIsOpenAdd} closeModal={closeModalAdd} />
       <ModalChangeBook
         modalIsOpen={modalIsOpenChange}

@@ -23,11 +23,19 @@ function Register() {
     setConfirmPassword(e.target.value);
   };
 
-  const registerUser = (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
 
+    if (!name || !email || !password || !confirmPassword) {
+      alert("Preencha todos os campos !");
+    }
+
     if (name && email && password && confirmPassword) {
-      createUser(name, email, password, confirmPassword);
+      const temp = await createUser(name, email, password, confirmPassword);
+
+      if(temp === false) return
+
+      alert("Conta criada com sucesso!")
       setSuccessRegister(true);
     }
   };

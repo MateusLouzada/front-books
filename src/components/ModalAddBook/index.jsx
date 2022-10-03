@@ -71,7 +71,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
     //console.log(bookSelected?.volumeInfo.imageLinks);
     const bookDetails = {
       name: bookSelected?.volumeInfo.title,
-      image: bookSelected?.volumeInfo.imageLinks.thumbnail,
+      image: bookSelected?.volumeInfo?.imageLinks?.thumbnail,
       read: e.target[0].checked,
       haveBook: e.target[1].checked,
       pages: bookSelected?.volumeInfo.pageCount,
@@ -95,9 +95,10 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={modalStyle}
+        ariaHideApp={false}
       >
         <ButtonClose>
-          <button onClick={closeModal}>close</button>
+          <button onClick={closeModal}>Fechar</button>
         </ButtonClose>
         <DivContent>
           <DivSearchBox>
@@ -113,7 +114,7 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
                   {...params}
                   onChange={getNamesBooks}
                   variant="outlined"
-                  label="Search Box"
+                  label="Procurar Livros"
                 />
               )}
             />

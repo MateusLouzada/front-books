@@ -15,11 +15,16 @@ export const createSession = async (email, password) => {
 };
 
 export const createUser = async (name, email, password, confirmPassword) => {
-  return await api.post(
-    "/auth/register",
-    { name, email, password, confirmPassword },
-    { "Content-Type": "application/json" }
-  );
+  try {
+    return await api.post(
+      "/auth/register",
+      { name, email, password, confirmPassword },
+      { "Content-Type": "application/json" }
+    );
+  } catch (err) {
+    alert(err.response.data.msg);
+    return false;
+  }
 };
 
 export const getBooks = async (idUser) => {
@@ -66,10 +71,16 @@ export const deleteBook = async (name, idUser) => {
   );
 };
 
-export const changeBook = async (idUser, name, newRead, newHaveBook) => {
+export const changeBook = async (
+  idUser,
+  name,
+  newRead,
+  newHaveBook,
+  newReadingTime
+) => {
   return await api.put(
     "/books/change_book",
-    { idUser, name, newRead, newHaveBook },
+    { idUser, name, newRead, newHaveBook, newReadingTime },
     { "Content-Type": "application/json" }
   );
 };
