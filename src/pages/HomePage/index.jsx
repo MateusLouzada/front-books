@@ -30,8 +30,8 @@ function HomePage() {
   useEffect(() => {
     async function getBooksApi() {
       const response = await getBooks(user.id);
-      const booksUser = response.data;
-      setBooks(booksUser.books);
+      const booksUser = response.data.books;
+      setBooks(booksUser);
     }
     getBooksApi();
   }, [modalIsOpenAdd, modalIsOpenChange, reloadBook, defaultBooks]);
@@ -69,7 +69,6 @@ function HomePage() {
   };
 
   const handleDefaultBooks = () => {
-    console.log(defaultBooks);
     if (defaultBooks) {
       return setDefaultBooks(false);
     }
