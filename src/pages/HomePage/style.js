@@ -22,4 +22,16 @@ export const DivAddBook = styled.div`
   button {
     padding: 10px;
   }
+
+  @media (max-width: 702px){
+    &{
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      button {
+        margin-top: 0.5rem;
+      }
+    }
+
+  }
 `;

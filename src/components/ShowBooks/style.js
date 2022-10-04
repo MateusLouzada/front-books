@@ -34,18 +34,19 @@ export const Container = styled.div`
     width: 60%;
     margin: 1rem;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
   }
 
   .divBook {
     cursor: pointer;
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     align-items: center;
     border-radius: 5px;
     padding: 6px;
-    width: 90%;
+    width: 60%;
     background-color: #b232e3;
   }
 
@@ -56,6 +57,34 @@ export const Container = styled.div`
   .divButtons {
     display: flex;
     justify-content: space-around;
+  }
+
+  @media (max-width: 1040px) {
+    .divBook {
+      justify-content: center;
+    }
+
+    .divButtons {
+      button {
+        margin-top: 0.5rem;
+      }
+    }
+
+    &{
+      align-items: center;
+      height: 80vh;
+    }
+  }
+
+  @media (max-width: 602px) {
+    li {
+      font-size: 0.8rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+      height: 25px
+    }
   }
 `;
 
