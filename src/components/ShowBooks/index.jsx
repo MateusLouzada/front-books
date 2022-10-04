@@ -34,38 +34,6 @@ function ShowBooks({ books, openModalChange, setReloadBook, reloadBook }) {
         </button>
         <button onClick={openModalChange.bind(this, bookInside)}>Mudar</button>
       </div>
-      {/* <CardBook>
-        <DivImage onClick={openModalChange.bind(this, bookInside)}>
-          <img src={bookInside.image} />
-        </DivImage>
-        <DivDetails onClick={openModalChange.bind(this, bookInside)}>
-          <div>
-            <h3>Livro </h3>
-            <p>{bookInside.name}</p>
-          </div>
-          <div>
-            <h3>Lido</h3>
-            <p>{bookInside.read ? "Sim" : "Não"}</p>
-          </div>
-          <div>
-            <h3>Livro obtido </h3>
-            <p>{bookInside.haveBook ? "Sim" : "Não"}</p>
-          </div>
-          <div>
-            <h3>Páginas </h3>
-            <p>{bookInside.pages}</p>
-          </div>
-          <div>
-            <h3>Concluido em</h3>
-            <p>{bookInside.readingTime} Dias</p>
-          </div>
-        </DivDetails>
-        <div>
-          <button onClick={deleteBookButton.bind(this, bookInside)}>
-            Apagar
-          </button>
-        </div>
-      </CardBook> */}
     </li>
   ));
 

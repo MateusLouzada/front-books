@@ -4,10 +4,12 @@ import { transparentize } from "polished";
 export const modalStyle = {
   content: {
     width: "80%",
+    inset: "20px",
     height: "80%",
     backgroundColor: transparentize(0.2, "#9544FA"),
     display: "flex",
     margin: "auto",
+    alignItems: "center",
     justifyContent: "space-around",
     flexDirection: "column",
     overflow: "hidden",
@@ -18,6 +20,14 @@ export const DivSearchBox = styled.div`
   width: 40%;
   max-width: 300px;
   align-self: center;
+
+  @media (max-width: 774px) {
+    &{
+      display: flex;
+      max-width: 150px;
+      color: red;
+    }
+  }
 `;
 
 export const ButtonClose = styled.div`
@@ -84,5 +94,9 @@ export const DivInteractions = styled.div`
 
   div {
     margin-bottom: 15px;
+  }
+
+  @media (max-width: 490px){
+    text-align: center;
   }
 `;

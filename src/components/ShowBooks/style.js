@@ -44,6 +44,7 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    text-align: center;
     border-radius: 5px;
     padding: 6px;
     width: 60%;
