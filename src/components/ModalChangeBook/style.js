@@ -4,6 +4,7 @@ import { transparentize } from "polished";
 export const modalStyle = {
   content: {
     width: "80%",
+    inset: "20px",
     height: "80%",
     backgroundColor: transparentize(0.2, "#9544FA"),
     display: "flex",
