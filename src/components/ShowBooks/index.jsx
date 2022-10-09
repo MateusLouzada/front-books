@@ -1,17 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { deleteBook } from "../../services/api";
 import { Container, DivNotBook } from "./style";
-import autoAnimate from "@formkit/auto-animate";
 
 function ShowBooks({ books, openModalChange, setReloadBook, reloadBook }) {
-  const parentRef = useRef();
-
-  useEffect(() => {
-    if (parentRef.current) {
-      autoAnimate(parentRef.current);
-    }
-  }, [parentRef]);
-
   const deleteBookButton = async (book, _) => {
     await deleteBook(book.name, book.idUser);
 
@@ -49,7 +40,7 @@ function ShowBooks({ books, openModalChange, setReloadBook, reloadBook }) {
 
   return (
     <Container>
-      <ul ref={parentRef}>{bookComp}</ul>
+      <ul>{bookComp}</ul>
     </Container>
   );
 }

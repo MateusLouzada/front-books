@@ -8,9 +8,9 @@ export const Container = styled.div`
 
 export const DivButton = styled.div`
   display: flex;
-  width: 90%;
-  height: 30px;
-  justify-content: flex-end;
+  width: 100%;
+  height: 150px;
+  justify-content: space-between;
   margin: 1rem 0;
 `;
 
@@ -35,3 +35,7 @@ export const DivAddBook = styled.div`
 
   }
 `;
+
+export const Test = styled.div`
+  background-color: red;
+`

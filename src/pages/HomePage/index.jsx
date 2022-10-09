@@ -1,8 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Container, DivButton, DivAddBook } from "./style";
+import { Container, DivButton } from "./style";
 import { getBooks } from "../../services/api";
 import ShowBooks from "../../components/ShowBooks";
 import ModalAddBook from "../../components/ModalAddBook";
+
+import Dropdown from "react-dropdown";
+import "./dropDownStyle.css";
 
 import { AuthContext } from "../../contexts/auth";
 import ModalChangeBook from "../../components/ModalChangeBook";
@@ -75,6 +78,28 @@ function HomePage() {
     return setDefaultBooks(true);
   };
 
+  const handleFilter = (e) => {
+    switch (e.value) {
+      case "Ordem alfabética":
+        handleSortBooks();
+        break;
+      case "Obtido":
+        handleHaveBook();
+        break;
+      case "Lido":
+        handleReadBook();
+        break;
+      case "Ordem Padrão":
+        handleDefaultBooks();
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const options = ["Ordem Padrão", "Ordem alfabética", "Obtido", "Lido"];
+
   if (!books) {
     return <h2>Carregando...</h2>;
   }
@@ -82,15 +107,28 @@ function HomePage() {
   return (
     <Container>
       <DivButton>
+        <Dropdown
+          options={options}
+          onChange={handleFilter}
+          value={options[0]}
+          placeholder={options[0]}
+          className="divContainer"
+          controlClassName="controlClass"
+          placeholderClassName="placeClass"
+          menuClassName="menuClass"
+          arrowClassName="arrowClassName"
+          arrowClosed={<span className="arrow-closed" />}
+          arrowOpen={<span className="arrow-open" />}
+        />
         <button onClick={handleLogout}>Logout</button>
       </DivButton>
-      <DivAddBook>
+      {/* <DivAddBook>
         <button onClick={openModalAdd}>Adicionar um livro</button>
         <button onClick={handleSortBooks}>Ordem alfabética</button>
         <button onClick={handleHaveBook}>Obtido</button>
         <button onClick={handleReadBook}>Lido</button>
         <button onClick={handleDefaultBooks}>Ordem padrão</button>
-      </DivAddBook>
+      </DivAddBook> */}
       <ShowBooks
         books={books}
         openModalChange={openModalChange}

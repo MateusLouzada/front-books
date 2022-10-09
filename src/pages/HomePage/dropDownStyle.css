@@ -1,0 +1,25 @@
+.divContainer {
+  margin-left: 0.5rem;
+  position: relative;
+}
+
+.placeClass {
+  background-color: #b232e3;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 7px;
+  width: 130px;
+}
+
+.menuClass {
+  background-color: #b232e3;
+  border-radius: 5px;
+}
+
+.Dropdown-option {
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}

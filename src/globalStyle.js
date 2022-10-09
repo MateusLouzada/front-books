@@ -28,6 +28,9 @@ const GlobalStyle = createGlobalStyle`
   button:hover{
     background-color: ${darken(0.2, "#B232E3")};
   }
+  .Dropdown-option:hover, .placeClass:hover{
+    background-color: ${darken(0.2, "#B232E3")};
+}
 `;
 
 export default GlobalStyle;
