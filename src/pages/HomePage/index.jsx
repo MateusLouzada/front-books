@@ -34,6 +34,7 @@ function HomePage() {
     async function getBooksApi() {
       const response = await getBooks(user.id);
       const booksUser = response.data.books;
+      console.log(booksUser);
       setBooks(booksUser);
     }
     getBooksApi();
@@ -57,18 +58,18 @@ function HomePage() {
 
   const handleHaveBook = () => {
     setBooks(
-      books.filter((book) => {
+      [...books].filter((book) => {
         if (book.haveBook) return book;
       })
     );
   };
 
   const handleReadBook = () => {
-    setBooks(
-      books.filter((book) => {
-        if (book.read) return book;
-      })
-    );
+    const temp = books.filter((book) => {
+      if (book.read) return book;
+    });
+    console.log(temp);
+    setBooks(temp);
   };
 
   const handleDefaultBooks = () => {
@@ -120,10 +121,10 @@ function HomePage() {
           arrowClosed={<span className="arrow-closed" />}
           arrowOpen={<span className="arrow-open" />}
         />
+        <button onClick={openModalAdd}>Adicionar um livro</button>
         <button onClick={handleLogout}>Logout</button>
       </DivButton>
       {/* <DivAddBook>
-        <button onClick={openModalAdd}>Adicionar um livro</button>
         <button onClick={handleSortBooks}>Ordem alfabética</button>
         <button onClick={handleHaveBook}>Obtido</button>
         <button onClick={handleReadBook}>Lido</button>
