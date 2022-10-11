@@ -1,9 +1,8 @@
 import styled, {keyframes} from "styled-components";
 import { darken } from "polished";
-import { bounceIn, bounceOut } from "react-animations";
+import { fadeIn } from "react-animations";
 
-const bouceInAnimation = keyframes`${bounceIn}`
-const bounceOutAnimation = keyframes`${bounceOut}`
+const fadeInAnimation = keyframes`${fadeIn}`
 
 export const DivNotBook = styled.div`
   height: 80vh;
@@ -41,7 +40,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    animation-name: ${bouceInAnimation};
+    animation-name: ${fadeInAnimation};
     animation-duration: 1s;
   }
 
