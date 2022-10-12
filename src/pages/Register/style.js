@@ -14,13 +14,15 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: 60%;
+    color: black;
   }
 
   div {
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    align-items: center;
   }
 
   input {
@@ -28,6 +30,8 @@ export const Container = styled.div`
     border-radius: 5px;
     padding: 5px;
     border: none;
+    background-color: #3f51b5;
+    color: white;
     height: 15px;
   }
 
@@ -35,5 +39,13 @@ export const Container = styled.div`
     width: 200px;
     text-align: center;
     display: inline-block;
+  }
+`;
+
+export const DivButton = styled.div`
+  width: 20% !important;
+
+  .divButtonInside{
+    margin: 0 20px
   }
 `;

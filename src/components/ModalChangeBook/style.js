@@ -6,7 +6,7 @@ export const modalStyle = {
     width: "80%",
     inset: "20px",
     height: "80%",
-    backgroundColor: transparentize(0.2, "#9544FA"),
+    backgroundColor: transparentize(0.2, "#3f51b5"),
     display: "flex",
     margin: "auto",
     justifyContent: "space-around",

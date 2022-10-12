@@ -1,3 +1,5 @@
+import { Button } from "@material-ui/core";
+import { Box } from "@mui/system";
 import React from "react";
 import { deleteBook } from "../../services/api";
 import { Container, DivNotBook } from "./style";
@@ -20,17 +22,31 @@ function ShowBooks({ books, openModalChange, setReloadBook, reloadBook }) {
         {bookInside.name}
       </div>
       <div className="divButtons">
-        <button onClick={deleteBookButton.bind(this, bookInside)}>
-          Apagar
-        </button>
-        <button onClick={openModalChange.bind(this, bookInside)}>Mudar</button>
+        <Box sx={{ m: 1 }}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={deleteBookButton.bind(this, bookInside)}
+          >
+            Apagar
+          </Button>
+        </Box>
+        <Box sx={{ m: 1 }}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={openModalChange.bind(this, bookInside)}
+          >
+            Mudar
+          </Button>
+        </Box>
       </div>
     </li>
   ));
 
   const bookEmpty = (
     <DivNotBook>
-      <h2>Não possui livro cadastrado</h2>
+      <h2 style={{ color: "Black" }}>Não possui livro cadastrado</h2>
     </DivNotBook>
   );
 

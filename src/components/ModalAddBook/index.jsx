@@ -10,7 +10,7 @@ import {
 } from "./style";
 import Modal from "react-modal";
 import { getBook } from "../../services/apiGoogleBooks";
-import { TextField } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { AuthContext } from "../../contexts/auth";
 import { addBook } from "../../services/api";
@@ -98,13 +98,20 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
         ariaHideApp={false}
       >
         <ButtonClose>
-          <button onClick={closeModal}>Fechar</button>
+          <Button
+            size="medium"
+            color="primary"
+            variant="contained"
+            onClick={closeModal}
+          >
+            Fechar
+          </Button>
         </ButtonClose>
         <DivContent>
           <DivSearchBox>
             <Autocomplete
               style={{ width: 300 }}
-              onChange={(e, newBook) => setBookName(newBook)}
+              onChange={(_, newBook) => setBookName(newBook)}
               freeSolo
               autoComplete
               autoHighlight
@@ -137,7 +144,14 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
             </div>
           </DivInteractions>
           <DivButton>
-            <button type="submit">AddBook</button>
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
+              Adicionar
+            </Button>
           </DivButton>
         </form>
       </Modal>

@@ -1,7 +1,8 @@
+import { Box, Button } from "@material-ui/core";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { createUser } from "../../services/api";
-import { Container } from "./style";
+import { Container, DivButton } from "./style";
 
 function Register() {
   const [name, setName] = useState();
@@ -33,9 +34,9 @@ function Register() {
     if (name && email && password && confirmPassword) {
       const temp = await createUser(name, email, password, confirmPassword);
 
-      if(temp === false) return
+      if (temp === false) return;
 
-      alert("Conta criada com sucesso!")
+      alert("Conta criada com sucesso!");
       setSuccessRegister(true);
     }
   };
@@ -63,12 +64,29 @@ function Register() {
           <span>Confimação de senha</span>
           <input type="password" onChange={handleConfirmPassword} />
         </div>
-        <div>
-          <button type="submit">Enviar</button>
-          <button type="button" onClick={changeLogin}>
-            Voltar
-          </button>
-        </div>
+        <DivButton>
+          <div className="divButtonInside">
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
+              Enviar
+            </Button>
+          </div>
+          <div className="divButtonInside">
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="button"
+              onClick={changeLogin}
+            >
+              Voltar
+            </Button>
+          </div>
+        </DivButton>
       </form>
       {successRegister ? <Navigate to="/login" /> : <></>}
     </Container>

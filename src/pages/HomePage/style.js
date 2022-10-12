@@ -9,8 +9,8 @@ export const Container = styled.div`
 export const DivButton = styled.div`
   display: flex;
   width: 100%;
-  height: 150px;
-  justify-content: space-between;
+  height: 200px;
+  justify-content: space-around;
   margin: 1rem 0;
 `;
 
@@ -19,18 +19,18 @@ export const DivAddBook = styled.div`
   width: 100%;
   justify-content: center;
 
-  button {
+  /* button {
     padding: 10px;
-  }
+  } */
 
   @media (max-width: 702px){
     &{
       flex-wrap: wrap;
       justify-content: space-around;
 
-      button {
+      /* button {
         margin-top: 0.5rem;
-      }
+      } */
     }
 
   }

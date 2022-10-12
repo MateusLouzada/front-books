@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: Open-Sans, Helvetica, Sans-Serif;
-        background-color: #9544FA;
+        background-color: whitesmoke;
         color: white;
     }
     *,
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     *:after{
       box-sizing: inherit  
     }
-    button {
+    /* button {
     background-color: #B232E3;
     color: white;
     border-radius: 5px;
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
   button:hover{
     background-color: ${darken(0.2, "#B232E3")};
-  }
+  } */
   .Dropdown-option:hover, .placeClass:hover{
     background-color: ${darken(0.2, "#B232E3")};
 }

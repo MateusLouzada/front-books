@@ -1,8 +1,8 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { darken } from "polished";
 import { fadeIn } from "react-animations";
 
-const fadeInAnimation = keyframes`${fadeIn}`
+const fadeInAnimation = keyframes`${fadeIn}`;
 
 export const DivNotBook = styled.div`
   height: 80vh;
@@ -51,13 +51,14 @@ export const Container = styled.div`
     align-items: center;
     text-align: center;
     border-radius: 5px;
-    padding: 6px;
+    height: 24.5px;
     width: 60%;
-    background-color: #b232e3;
+    background-color: #3f51b5;
+    padding: 6px 16px;
   }
 
   .divBook:hover {
-    background-color: ${darken(0.2, "#B232E3")};
+    background-color: ${darken(0.2, "#3f51b5")};
   }
 
   .divButtons {

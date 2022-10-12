@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  color: black;
 `;
 export const ContainerLogin = styled.form`
   display: flex;
@@ -38,5 +39,7 @@ export const ContainerLogin = styled.form`
     padding: 5px;
     border: none;
     height: 15px;
+    background-color: #3f51b5;
+    color: white;
   }
 `;

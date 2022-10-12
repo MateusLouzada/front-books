@@ -2,6 +2,7 @@ import { Container, ContainerLogin } from "./style";
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
 import { Navigate } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -49,10 +50,27 @@ function Login() {
           />
         </div>
         <div>
-          <button type="submit">Entrar</button>
-          <button type="button" onClick={handleRegister}>
-            Cadastrar
-          </button>
+          <div>
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
+              Entrar
+            </Button>
+          </div>
+          <div>
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="button"
+              onClick={handleRegister}
+            >
+              Cadastrar
+            </Button>
+          </div>
         </div>
       </ContainerLogin>
       {register ? <Navigate to="/register" /> : <></>}

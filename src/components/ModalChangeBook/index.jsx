@@ -10,6 +10,7 @@ import {
 import { BookContext } from "../../contexts/bookContext";
 import { useContext } from "react";
 import { changeBook } from "../../services/api";
+import { Button } from "@material-ui/core";
 
 function ModalChangeBook({ modalIsOpen, closeModal }) {
   const { book } = useContext(BookContext);
@@ -37,7 +38,14 @@ function ModalChangeBook({ modalIsOpen, closeModal }) {
         ariaHideApp={false}
       >
         <ButtonClose>
-          <button onClick={closeModal}>Fechar</button>
+          <Button
+            size="medium"
+            color="primary"
+            variant="contained"
+            onClick={closeModal}
+          >
+            Fechar
+          </Button>
         </ButtonClose>
         <DivName>
           <h3>{book?.name}</h3>
@@ -69,7 +77,14 @@ function ModalChangeBook({ modalIsOpen, closeModal }) {
             </div>
           </DivInteractions>
           <DivButton>
-            <button type="submit">Mudar</button>
+            <Button
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
+              Mudar
+            </Button>
           </DivButton>
         </form>
       </Modal>
