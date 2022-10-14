@@ -27,6 +27,7 @@ function HomePage() {
   const [modalIsOpenChange, setModalIsOpenChange] = useState(false);
   const [defaultBooks, setDefaultBooks] = useState(false);
   const [filter, setFilter] = useState("Ordem Padrão");
+  const [refresh, setRefresh] = useState(false)
 
   const openModalAdd = () => setModalIsOpenAdd(true);
   const openModalChange = (book, _) => {
@@ -45,7 +46,7 @@ function HomePage() {
       setBooks(booksUser);
     }
     getBooksApi();
-  }, [modalIsOpenAdd, modalIsOpenChange, reloadBook, defaultBooks]);
+  }, [refresh, reloadBook, defaultBooks]);
 
   const handleLogout = () => {
     logout();
@@ -162,10 +163,17 @@ function HomePage() {
         setReloadBook={setReloadBook}
         reloadBook={reloadBook}
       />
-      <ModalAddBook modalIsOpen={modalIsOpenAdd} closeModal={closeModalAdd} />
+      <ModalAddBook
+        modalIsOpen={modalIsOpenAdd}
+        closeModal={closeModalAdd}
+        refresh={refresh}
+        setRefresh={setRefresh}
+      />
       <ModalChangeBook
         modalIsOpen={modalIsOpenChange}
         closeModal={closeModalChange}
+        refresh={refresh}
+        setRefresh={setRefresh}
       />
     </Container>
   );

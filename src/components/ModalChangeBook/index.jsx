@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { changeBook } from "../../services/api";
 import { Button } from "@material-ui/core";
 
-function ModalChangeBook({ modalIsOpen, closeModal }) {
+function ModalChangeBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
   const { book } = useContext(BookContext);
 
   const handleChangeBook = async (e) => {
@@ -25,6 +25,12 @@ function ModalChangeBook({ modalIsOpen, closeModal }) {
       e.target[1].checked,
       e.target[2].value
     );
+
+    if(refresh){
+      setRefresh(false)
+    }else{
+      setRefresh(true)
+    }
 
     closeModal();
   };

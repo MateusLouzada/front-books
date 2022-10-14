@@ -15,7 +15,7 @@ import { Autocomplete } from "@material-ui/lab";
 import { AuthContext } from "../../contexts/auth";
 import { addBook } from "../../services/api";
 
-function ModalAddBook({ modalIsOpen, closeModal }) {
+function ModalAddBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
   const { user } = useContext(AuthContext);
 
   const [booksSearchBox, setBooksSearchBox] = useState([]);
@@ -85,6 +85,12 @@ function ModalAddBook({ modalIsOpen, closeModal }) {
     }
 
     await addBook(bookDetails);
+
+    if(refresh){
+      setRefresh(false)
+    }else{
+      setRefresh(true)
+    }
 
     closeModal();
   };
