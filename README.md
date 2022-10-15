@@ -33,7 +33,7 @@ git clone https://github.com/MateusLouzada/api-books.git
 # entrar na pasta do projeto
 cd api-books
 
-# baixar o modulos
+# instalar dependências
 yarn
 
 # executar o projeto
