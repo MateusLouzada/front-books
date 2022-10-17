@@ -30,7 +30,7 @@ function Login() {
 
   return (
     <Container>
-      <ContainerLogin onSubmit={handleSubmit}>
+      <ContainerLogin autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
           <input

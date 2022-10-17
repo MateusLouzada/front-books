@@ -47,7 +47,7 @@ function Register() {
 
   return (
     <Container>
-      <form onSubmit={registerUser}>
+      <form autoComplete="off" onSubmit={registerUser}>
         <div>
           <span>Nome</span>
           <input type="text" onChange={handleName} />

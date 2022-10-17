@@ -43,6 +43,10 @@ export const DivInteractions = styled.div`
   div {
     margin-bottom: 15px;
   }
+
+  @media (max-width: 490px) {
+    text-align: center;
+  }
 `;
 
 export const DivButton = styled.div`
@@ -53,6 +57,7 @@ export const DivButton = styled.div`
   height: 60%;
   width: 100%;
   flex-direction: column;
+  margin-bottom: 1rem;
 
   .buttonDelete {
     @media (min-width: 1072px) {
