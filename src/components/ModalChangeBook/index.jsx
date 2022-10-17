@@ -11,9 +11,30 @@ import { BookContext } from "../../contexts/bookContext";
 import { useContext } from "react";
 import { changeBook } from "../../services/api";
 import { Button } from "@material-ui/core";
+import { deleteBook } from "../../services/api";
 
-function ModalChangeBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
+function ModalChangeBook({
+  modalIsOpen,
+  closeModal,
+  refresh,
+  setRefresh,
+  setReloadBook,
+  reloadBook,
+}) {
   const { book } = useContext(BookContext);
+
+  const deleteBookButton = async (book, _) => {
+    await deleteBook(book.name, book.idUser);
+
+    //Fazer reload da chamada de api de livros para ficar dinamico
+    if (reloadBook) {
+      setReloadBook(false);
+    } else {
+      setReloadBook(true);
+    }
+
+    closeModal();
+  };
 
   const handleChangeBook = async (e) => {
     e.preventDefault();
@@ -26,10 +47,10 @@ function ModalChangeBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
       e.target[2].value
     );
 
-    if(refresh){
-      setRefresh(false)
-    }else{
-      setRefresh(true)
+    if (refresh) {
+      setRefresh(false);
+    } else {
+      setRefresh(true);
     }
 
     closeModal();
@@ -90,6 +111,16 @@ function ModalChangeBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
               type="submit"
             >
               Mudar
+            </Button>
+            <Button
+              className="buttonDelete"
+              size="medium"
+              color="primary"
+              variant="contained"
+              type="button"
+              onClick={deleteBookButton.bind(this, book)}
+            >
+              Apagar
             </Button>
           </DivButton>
         </form>

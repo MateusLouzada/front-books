@@ -9,33 +9,26 @@ export const Container = styled.div`
 export const DivButton = styled.div`
   display: flex;
   width: 100%;
-  height: 200px;
+  flex-wrap: wrap;
   justify-content: space-around;
+  align-items: flex-end;
   margin: 1rem 0;
-`;
 
-export const DivAddBook = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
+  .child {
+    margin: 0 1rem;
+  }
 
-  /* button {
-    padding: 10px;
-  } */
+  .selectMenu {
+    min-width: 150px;
+    vertical-align: super;
+  }
 
-  @media (max-width: 702px){
-    &{
-      flex-wrap: wrap;
-      justify-content: space-around;
-
-      /* button {
-        margin-top: 0.5rem;
-      } */
+  @media (max-width: 529px) {
+    .child:nth-child(2) {
+      order: 1;
     }
-
+    .child:nth-child(2){
+      margin-top: 1rem;
+    }
   }
 `;
-
-export const Test = styled.div`
-  background-color: red;
-`

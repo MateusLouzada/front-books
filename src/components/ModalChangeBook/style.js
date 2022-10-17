@@ -53,4 +53,12 @@ export const DivButton = styled.div`
   height: 60%;
   width: 100%;
   flex-direction: column;
+
+  .buttonDelete {
+    @media (min-width: 1072px) {
+      & {
+        display: none;
+      }
+    }
+  }
 `;

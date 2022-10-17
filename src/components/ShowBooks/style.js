@@ -66,15 +66,13 @@ export const Container = styled.div`
     justify-content: space-around;
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: 1072px) {
     .divBook {
       justify-content: center;
     }
 
     .divButtons {
-      button {
-        margin-top: 0.5rem;
-      }
+      display:none
     }
 
     &{

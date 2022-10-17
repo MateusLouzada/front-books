@@ -15,6 +15,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Box,
 } from "@material-ui/core";
 
 function HomePage() {
@@ -26,8 +27,8 @@ function HomePage() {
   const [modalIsOpenAdd, setModalIsOpenAdd] = useState(false);
   const [modalIsOpenChange, setModalIsOpenChange] = useState(false);
   const [defaultBooks, setDefaultBooks] = useState(false);
-  const [filter, setFilter] = useState("Ordem Padrão");
-  const [refresh, setRefresh] = useState(false)
+  const [filter, setFilter] = useState("");
+  const [refresh, setRefresh] = useState(false);
 
   const openModalAdd = () => setModalIsOpenAdd(true);
   const openModalChange = (book, _) => {
@@ -42,7 +43,6 @@ function HomePage() {
     async function getBooksApi() {
       const response = await getBooks(user.id);
       const booksUser = response.data.books;
-      console.log(booksUser);
       setBooks(booksUser);
     }
     getBooksApi();
@@ -117,8 +117,8 @@ function HomePage() {
   return (
     <Container>
       <DivButton>
-        <div>
-          <FormControl color="primary" sx={{ m: 1, width: 250 }}>
+        <Box className="selectMenu child">
+          <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Filtro</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -134,8 +134,8 @@ function HomePage() {
               <MenuItem value={options[3]}>{options[3]}</MenuItem>
             </Select>
           </FormControl>
-        </div>
-        <div>
+        </Box>
+        <div className="child">
           <Button
             size="medium"
             color="primary"
@@ -145,7 +145,7 @@ function HomePage() {
             Adicionar um livro
           </Button>
         </div>
-        <div>
+        <div className="child">
           <Button color="primary" variant="contained" onClick={handleLogout}>
             Logout
           </Button>
@@ -174,6 +174,8 @@ function HomePage() {
         closeModal={closeModalChange}
         refresh={refresh}
         setRefresh={setRefresh}
+        setReloadBook={setReloadBook}
+        reloadBook={reloadBook}
       />
     </Container>
   );
