@@ -5,13 +5,17 @@ export const api = axios.create({
 });
 
 export const createSession = async (email, password) => {
-  return await api.post(
-    "/auth/login",
-    { email, password },
-    {
-      "Content-Type": "application/json",
-    }
-  );
+  try {
+    return await api.post(
+      "/auth/login",
+      { email, password },
+      {
+        "Content-Type": "application/json",
+      }
+    );
+  } catch (err) {
+    alert(err.response.data.msg);
+  }
 };
 
 export const createUser = async (name, email, password, confirmPassword) => {
@@ -28,7 +32,11 @@ export const createUser = async (name, email, password, confirmPassword) => {
 };
 
 export const getBooks = async (idUser) => {
-  return await api.get(`/books/books_user/${idUser}`);
+  try {
+    return await api.get(`/books/books_user/${idUser}`);
+  } catch (err) {
+    alert(err.response.data.msg);
+  }
 };
 
 export const addBook = async ({
@@ -40,35 +48,42 @@ export const addBook = async ({
   readingTime,
   idUser,
 }) => {
-  return await api.post(
-    "/books/add_book",
-    {
-      name,
-      image,
-      read,
-      haveBook,
-      pages,
-      readingTime,
-      idUser,
-    },
-    {
-      "Content-Type": "application/json",
-    }
-  );
+  try {
+    return await api.post(
+      "/books/add_book",
+      {
+        name,
+        image,
+        read,
+        haveBook,
+        pages,
+        readingTime,
+        idUser,
+      },
+      {
+        "Content-Type": "application/json",
+      }
+    );
+  } catch (err) {
+    alert(err.response.data.msg);
+  }
 };
 
 export const deleteBook = async (name, idUser) => {
-  //console.log(name, idUser);
-  return await api.delete(
-    "/books/delete_book",
-    {
-      data: {
-        idUser: idUser,
-        name: name,
+  try {
+    return await api.delete(
+      "/books/delete_book",
+      {
+        data: {
+          idUser: idUser,
+          name: name,
+        },
       },
-    },
-    { "Content-Type": "application/json" }
-  );
+      { "Content-Type": "application/json" }
+    );
+  } catch (err) {
+    alert(err.response.data.msg);
+  }
 };
 
 export const changeBook = async (
@@ -78,9 +93,13 @@ export const changeBook = async (
   newHaveBook,
   newReadingTime
 ) => {
-  return await api.put(
-    "/books/change_book",
-    { idUser, name, newRead, newHaveBook, newReadingTime },
-    { "Content-Type": "application/json" }
-  );
+  try {
+    return await api.put(
+      "/books/change_book",
+      { idUser, name, newRead, newHaveBook, newReadingTime },
+      { "Content-Type": "application/json" }
+    );
+  } catch (err) {
+    alert(err.response.data.msg);
+  }
 };

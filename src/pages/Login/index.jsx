@@ -14,6 +14,12 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!email){
+      return alert("Preencher o campo email!")
+    }
+    if(!password){
+      return alert("Preencher o campo senha!")
+    }
     login(email, password);
   };
 

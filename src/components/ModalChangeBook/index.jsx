@@ -100,7 +100,7 @@ function ModalChangeBook({
             </div>
             <div>
               <span>Lido em quanto tempo? (Dias)</span>
-              <input type="number" defaultValue={book?.readingTime} />
+              <input type="number" min="0" defaultValue={book?.readingTime} />
             </div>
           </DivInteractions>
           <DivButton>

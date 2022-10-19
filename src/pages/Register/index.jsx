@@ -1,4 +1,4 @@
-import { Box, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { createUser } from "../../services/api";
@@ -88,7 +88,7 @@ function Register() {
           </div>
         </DivButton>
       </form>
-      {successRegister ? <Navigate to="/login" /> : <></>}
+      {successRegister ? <Navigate to="/" /> : <></>}
     </Container>
   );
 }

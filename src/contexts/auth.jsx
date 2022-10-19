@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     setUser({ id: loggedUser.id, email: loggedUser.email });
-    navigate("/");
+    navigate("/dashboard");
   };
 
   const logout = () => {
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     api.defaults.headers.Authorization = null;
     setUser(null);
-    navigate("/login");
+    navigate("/");
   };
 
   return (

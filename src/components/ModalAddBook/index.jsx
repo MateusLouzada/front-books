@@ -146,7 +146,7 @@ function ModalAddBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
             </div>
             <div>
               <span>Lido em quanto tempo? (Dias)</span>
-              <input type="number" />
+              <input type="number" min="0"/>
             </div>
           </DivInteractions>
           <DivButton>
