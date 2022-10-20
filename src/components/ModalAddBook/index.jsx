@@ -68,7 +68,7 @@ function ModalAddBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
 
   const handleAddBook = async (e) => {
     e.preventDefault();
-    //console.log(bookSelected?.volumeInfo.imageLinks);
+    
     const bookDetails = {
       name: bookSelected?.volumeInfo.title,
       image: bookSelected?.volumeInfo?.imageLinks?.thumbnail,
@@ -80,7 +80,7 @@ function ModalAddBook({ modalIsOpen, closeModal, refresh, setRefresh }) {
     };
 
     if (!bookDetails.name && !bookDetails.pages) {
-      console.log("Não foi possível cadastrar o livro!");
+      alert("Não foi possível cadastrar o livro!");
       return;
     }
 

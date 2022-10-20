@@ -28,19 +28,21 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const response = await createSession(email, password);
 
-    const loggedUser = response.data;
-    const token = response.data.token;
+    const loggedUser = response?.data;
+    const token = response?.data?.token;
 
     localStorage.setItem(
       "user",
-      JSON.stringify({ id: loggedUser.id, email: loggedUser.email })
+      JSON.stringify({ id: loggedUser?.id, email: loggedUser?.email })
     );
     localStorage.setItem("token", token);
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    setUser({ id: loggedUser.id, email: loggedUser.email });
-    navigate("/dashboard");
+    setUser({ id: loggedUser?.id, email: loggedUser?.email });
+    if (loggedUser) {
+      navigate("/dashboard");
+    }
   };
 
   const logout = () => {

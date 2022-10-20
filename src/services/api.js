@@ -14,7 +14,16 @@ export const createSession = async (email, password) => {
       }
     );
   } catch (err) {
-    alert(err.response.data.msg);
+    if (err.response.data.message) {
+      if (err.response.data.message[0] == "email") {
+        return alert("Email inválido!");
+      }
+      if (err.response.data.message[0] == "password") {
+        return alert("A senha deve conter no mínimo 4 caracteres");
+      }
+    }
+
+    return alert("Email ou senha incorreto!");
   }
 };
 
@@ -26,7 +35,16 @@ export const createUser = async (name, email, password, confirmPassword) => {
       { "Content-Type": "application/json" }
     );
   } catch (err) {
-    alert(err.response.data.msg);
+    const error = err.response.data.message[0];
+    if (error == "name") {
+      alert("Inserir um nome válido!");
+    }
+    if (error == "email") {
+      alert("Inserir um email válido!");
+    }
+    if (error == "password") {
+      alert("Inserir uma senha com no mínimo 4 caracteres!");
+    }
     return false;
   }
 };
