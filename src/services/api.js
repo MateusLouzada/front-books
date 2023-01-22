@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://api-book-ml.herokuapp.com",
+  baseURL: "https://api-books-bllr.onrender.com",
 });
 
 export const createSession = async (email, password) => {
